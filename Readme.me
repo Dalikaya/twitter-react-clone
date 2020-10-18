@@ -1,0 +1,12 @@
+1.Storybook ayağa kaldırdık
+2.StoryBook tarafında PostCss pluginleri kullanmak için config dosyasını oluşturduk
+3.svg iconlarımızı projemizde kullanmamız için package.json da bir satır ekledik "icon" (SVGR CLI paketi yardımıyla tüm svg iconlarımızı bir react componenti halinde getirip components klasörünün altında çıktı aldık)
+4.Button Navigation-Button ve Navigation Componentlerimizi oluşturduk (Navigation Navigation-Buttonlardan oluşuyor ,Navigation-Button da Button dan oluşuyor) Böylelikle instance component bir yapı oluşturduk
+5.Css variableslarımızı variables.css (renklerimizi bir değişkenlere atadık) dosyamıza yazdık sonra onu ana css dosyamız olan app.css imizde import ettik
+6.https://css-tricks.com/snippets/css/system-font-stack/ sitesinden font family ekledik app.css içindeki body mize
+7. html font size:15px    body font-size:1 rem // 1 rem diyerek html imize eşitlemiş olduk(  roota bağlamış olduk yani html e base font-size ımızı 15px )
+8.normalde button.js (base buttonumuz) un className i var ama props larından da className geldiği kendi className ini eziyor Biz hem kendi className ini Hem de Dışarıdan gelen ClassName i kullanabilmek için ikisini birleştirmek isteriz (Merge işlemi) 
+bunun içinde npm install classnames  ile classname birleştirme paketini yükledik ve onu base buttonumuzda kullandık  cn diye kısalttık cn(Kendi className i ,Dışarıdan gelen classNameler)
+9.navigation çağırdığımız yerde selected ="home" diye bir props oluşuturuyoruz navigation içinde selected = {selected === "home"} diye kontrol ekliyoruz home ise true
+navigation-button da selected diye bir props alıyoruz bu propsu cn(ilk class,selected && style.navButtonSelected) içinde kontrol ettiriyoruz (eğer selected true ise && bu işlemi yap ) ve cn ile iki classımızı birleştiriyoruz
+10.notify oluşturmak için işlemlerimizi yaptık notify için position:absolute dedik kapsayıcısına da position:relaitiv dedik ki kapsayıcısının dışına çıkmasın

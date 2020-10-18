@@ -1,0 +1,6 @@
+/* cursor pointer buttonumuzun üstüne geldiğinde mouseumuzu işaretçimiz el işareti(Tıkla) oluyor */
+.button {
+  background-color: #ccc;
+  cursor:pointer; 
+  background:transparent;
+}

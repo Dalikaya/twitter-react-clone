@@ -1,0 +1,9 @@
+/* & işareti button dan sonra gelen button demiş olduk & +& deseydik nav button  dan sonra gelen nav buttonlara demiş olurduk   */
+.nav  {
+ button {
+      & + button { 
+         margin-top:8px;
+     }
+ }
+}
+
