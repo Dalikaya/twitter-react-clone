@@ -15,7 +15,7 @@ export const Normal = () => <Button>Save</Button>
 export const NavButton = () => (
   <NavigationButton>
       <Home />
-      <TitleBold>Twiter</TitleBold>
+      <TitleBold>Home</TitleBold>
     </NavigationButton>
 )
 
