@@ -2,18 +2,8 @@
   position: relative;
 
   color: var(--c-text-color);
-  color: white;
   padding: 10px;
-  border-radius: 99px;
-  display: flex;
-  align-items: center;
-  transition: var(--fade);
-  
-  &:hover{
-      background-color: var(--c-theme-20);
-      color: var(--c-theme)
-  }
-
+ 
   svg {
     font-size: 26px;
     & + * {

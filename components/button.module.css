@@ -1,6 +1,16 @@
 /* cursor pointer buttonumuzun üstüne geldiğinde mouseumuzu işaretçimiz el işareti(Tıkla) oluyor */
 .button {
-  background-color: #ccc;
-  cursor:pointer; 
-  background:transparent;
+  color: var(--c-text-color);
+  cursor: pointer;
+  background: transparent;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  transition: var(--fade);
+
+
+    &:hover{
+      background-color: var(--c-theme-20);
+      color: var(--c-theme)
+  }
 }
