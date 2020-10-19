@@ -1,0 +1,23 @@
+/* Flex-shrink :0 demek kullanıldığı yerde eğer flex varsa kapsayıcısında sen küçülme demiş olduk */
+/* margin left: auto arasında ne kadar boşluk varsa ittir */
+.box {
+  padding: 10px;
+
+  &:hover {
+    color: var(--text-color);
+  }
+}
+.body {
+  margin-left: 10px;
+  margin-right: 20px;
+  * {
+    display: block;
+  }
+}
+.slug{
+    color: var(--c-gray);
+}
+
+.icon {
+  margin-left: auto;
+}
