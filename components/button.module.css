@@ -6,6 +6,7 @@
   border-radius: 99px;
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: var(--fade);
 
 
@@ -13,4 +14,9 @@
       background-color: var(--c-theme-20);
       color: var(--c-theme)
   }
+}
+
+.fullWidth {
+  width: 100% !important;
+  
 }

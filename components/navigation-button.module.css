@@ -1,7 +1,6 @@
 .navButton {
   position: relative;
 
-  color: var(--c-text-color);
   padding: 10px;
  
   svg {
