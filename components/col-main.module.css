@@ -1,3 +1,7 @@
+/* border-width: 0 1px; yukarıdan aşağı yöne 1 px indir yani sağ tarafı ve sola tarafına  border demiş olduk */
 .main{
-    background-color:gray;
+   border-width:0 1px;
+   border-style: solid;
+   border-color:var(--c-border-color);
 }
+

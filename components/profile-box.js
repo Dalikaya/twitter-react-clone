@@ -6,18 +6,24 @@ import Button from './button'
 import TextBody from './text-body'
 import {ArrowBottom} from './icons'
 
-export default function ProfileBox({
+export default function ProfileBox({ flat=false,
     name="Ali KAYA",
     slug="alikaya"
 }) {
   return (
     <Button className={cn(styles.box)}>
+     
       <Photo/>
-        <div className={styles.body}>
+      {/* birden fazla tagi kapatmak için frangment <></> kullanıyoruz  flat ise gösterme değilse göster*/ }
+      {!flat && ( <>
+       <div className={styles.body}>
           <TextBody bold>{name}</TextBody>
           <TextBody className={styles.slug}>@{slug}</TextBody>
         </div>
         <ArrowBottom className={styles.icon}></ArrowBottom>
+       </>
+       )}
+      
           
     </Button>
   )

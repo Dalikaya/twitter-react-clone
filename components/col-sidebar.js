@@ -11,10 +11,10 @@ export default function Sidebar({ flat }) {
     <div className={cn(styles.sidebar)}>
      
       <Navigation flat={flat}></Navigation>
-      <ThemeButton big full>
-        Tweet
+      <ThemeButton big full={!flat }>
+        {flat ? "a" :"Tweet"}
       </ThemeButton>
-      <ProfileBox></ProfileBox>
+      <ProfileBox flat={flat}></ProfileBox>
     </div>
   )
 }
