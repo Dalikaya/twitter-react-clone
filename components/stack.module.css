@@ -1,4 +1,4 @@
-//gap değişkenimiz dışarıdan da geldiği için burada yazmasak da olurdu
+/*gap değişkenimiz dışarıdan da geldiği için burada yazmasak da olurdu */
 .stack{
     --gap:10px;
     display: flex;
