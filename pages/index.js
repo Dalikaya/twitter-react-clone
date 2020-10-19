@@ -1,15 +1,23 @@
 import React from 'react'
+import CONST from '../constants/index'
+import Sidebar from '../components/col-sidebar'
+import Main from '../components/col-main'
+import Extra from '../components/col-extra'
+import useWindowSize from '../hooks/useWindowSize'
+import Layout from '../components/layout'
 
-import Button from '../components/button'
-
-import Navigation from '../components/navigation';
 
 function HomePage() {
+  const size = useWindowSize();
+
+
   return (
-    <div>
-      <h1>Welcome to Next.js!</h1>
-      <Navigation></Navigation>
-    </div>
+    <Layout>
+    <Sidebar flat = {size.with <CONST.DESKTOP_SIZE}>Sidebar</Sidebar>
+    <Main>{JSON.stringify(size)}</Main>
+    {/* sizedan gelen witdh değerimiz constant klasorümüzden gelen sabitlerimizden tablet için olanından (980) büyükse extrayı göster değilse gösterme */}
+{size.width > CONST.TABLET_SIZE &&  <Extra>Extra</Extra>}
+    </Layout>
   )
 }
 
