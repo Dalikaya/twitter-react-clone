@@ -6,17 +6,15 @@ import Extra from '../components/col-extra'
 import useWindowSize from '../hooks/useWindowSize'
 import Layout from '../components/layout'
 
-
 function HomePage() {
-  const size = useWindowSize();
-
+  const size = useWindowSize()
 
   return (
     <Layout>
-    <Sidebar flat = {size.with <CONST.DESKTOP_SIZE}>Sidebar</Sidebar>
-    <Main>{JSON.stringify(size)}</Main>
-    {/* sizedan gelen witdh değerimiz constant klasorümüzden gelen sabitlerimizden tablet için olanından (980) büyükse extrayı göster değilse gösterme */}
-{size.width > CONST.TABLET_SIZE &&  <Extra>Extra</Extra>}
+      <Sidebar flat={size.width < CONST.DESKTOP_SIZE }>asdas</Sidebar>
+      <Main>{JSON.stringify(size)}</Main>
+      {/* sizedan gelen witdh değerimiz constant klasorümüzden gelen sabitlerimizden tablet için olanından (980) büyükse extrayı göster değilse gösterme */}
+      {size.width > CONST.TABLET_SIZE && <Extra>Extra</Extra>}
     </Layout>
   )
 }
