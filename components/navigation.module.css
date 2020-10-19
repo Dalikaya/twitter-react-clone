@@ -1,9 +1,13 @@
 /* & işareti button dan sonra gelen button demiş olduk & +& deseydik nav button  dan sonra gelen nav buttonlara demiş olurduk   */
 .nav  {
- button {
-      & + button { 
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+ 
+}
+
+.navButton {
+      & + & { 
          margin-top:8px;
      }
  }
-}
-
