@@ -13,7 +13,7 @@ export default function ProfileBox({ flat=false,
   return (
     <Button className={cn(styles.box)}>
      
-      <Photo/>
+      <Photo size={39}/>
       {/* birden fazla tagi kapatmak için frangment <></> kullanıyoruz  flat ise gösterme değilse göster*/ }
       {!flat && ( <>
        <div className={styles.body}>

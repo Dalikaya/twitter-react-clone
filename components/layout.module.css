@@ -8,7 +8,12 @@
  
 
   @media (--t) {
-    max-width: 1270px;
-    grid-template-columns: auto 1fr 230px;
+    max-width: 1060px;
+    grid-template-columns: auto 1fr 300px;
+  }
+
+   @media (--d) {
+    max-width: 100%;
+    grid-template-columns: auto 1fr 300px;
   }
 }

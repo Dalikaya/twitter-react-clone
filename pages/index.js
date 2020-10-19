@@ -11,7 +11,7 @@ function HomePage() {
 
   return (
     <Layout>
-      <Sidebar flat={size.width < CONST.DESKTOP_SIZE }>asdas</Sidebar>
+      <Sidebar  flat={size.width < CONST.DESKTOP_SIZE }>asdas</Sidebar>
       <Main>{JSON.stringify(size)}</Main>
       {/* sizedan gelen witdh değerimiz constant klasorümüzden gelen sabitlerimizden tablet için olanından (980) büyükse extrayı göster değilse gösterme */}
       {size.width > CONST.TABLET_SIZE && <Extra>Extra</Extra>}
