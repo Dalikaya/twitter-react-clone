@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import cn from 'classnames'
 
 import NavigationButton from './navigation-button'
 import {MENU} from '../constants'
@@ -21,7 +22,7 @@ function Navigation({ flat = false }) {
             notify={menu.notify < 1 ? null : menu.notify}
             selected={selected}
             href = {menu.path}
-            className={styles.navButton}
+            className={cn(styles.navButton,menu.key)}
           >
             {selected ? menu.iconSelected:menu.icon}
             {!flat && menu.title.length > 0 ? (

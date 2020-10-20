@@ -6,6 +6,7 @@ import StoreContext from '../store/index'
 export default function MyApp({ Component, pageProps }) {
   const [theme, themeSet] = useState(null)
 
+  //useLayout sayfa yüklendikten hemen sonra useEffecten önce çalışır ve localStorage dan verilerimiz getirir themeSet ile de Stateimizi günceller
   useLayoutEffect(() => {
   
     const theme = localStorage.getItem('THEME') || 'dark'
@@ -23,13 +24,15 @@ export default function MyApp({ Component, pageProps }) {
     themeSet(theme)
     localStorage.setItem("THEME",theme)
   }
-//theme state imizi izler değiştikçe html etiketimize class atıp siler
+//useLayoutEffectten sonra çalışır - useEffect theme state imizi izler değiştikçe html etiketimize class atıp silme işlemini yapar
   useEffect(() => {
     document.querySelector("html").removeAttribute("class");
     document.querySelector("html").classList.add(theme)
   }, [theme])
   return (
+    // komponentlerimize gitmesi gereken datayı ana kompponentimizde app imiz içinde tuttuk ve value={{theme,changeTheme}} diye aşağıya gönderdik
     <StoreContext.Provider value={{ theme,changeTheme }}>
+      {/* bütün satfalarımızı context.providerımızı ile sarmaladık */}
       <Component {...pageProps}></Component>
     </StoreContext.Provider>
   )

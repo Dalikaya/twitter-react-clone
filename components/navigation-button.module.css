@@ -10,6 +10,14 @@
       margin-right: 15px;
     }
   }
+  /* buradaki global dediğimizde ,normalde class isimlerimiz css module da otomatik generate edilir ama twitter olduğu gibi kalsın onu generate etme demiş olduk */
+  &:global(.twitter){
+    color: var(--c-theme);
+    /* html etiketinde light diye bir class ın yoksa o zaman white olsun demiş olduk (yani Dim ve Dark modunda Twitter İconumuz Beyaz olacak Light modunda üstteki mavi olacak) */
+    :global(html:not(.light)) & {
+      color: white;
+    }
+  }
 
   
 
