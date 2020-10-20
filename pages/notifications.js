@@ -2,16 +2,14 @@ import React from 'react'
 
 import Layout from '../components/layout'
 
-function HomePage() {
+function NotificationPage() {
 
 
   return (
     <Layout>
-      
-      Anasayfa
-
+      Notifications
     </Layout>
   )
 }
 
-export default HomePage
+export default NotificationPage

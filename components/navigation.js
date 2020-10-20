@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import NavigationButton from './navigation-button'
 import {MENU} from '../constants'
@@ -7,17 +8,18 @@ import styles from './navigation.module.css'
 
 
 
-function Navigation({ flat = false, selectedKey = 'messages' }) {
+function Navigation({ flat = false }) {
+  const router = useRouter();
+   
   return (
     <nav className={styles.nav}>
-      <p>{JSON.stringify(flat)}</p>
       {MENU.map((menu) => {
-        const selected = selectedKey === menu.key
+        const selected = router.pathname === menu.path
         return (
           <NavigationButton
             key={menu.key}
             notify={menu.notify < 1 ? null : menu.notify}
-            selected={selectedKey === menu.key}
+            selected={selected}
             href = {menu.path}
             className={styles.navButton}
           >

@@ -2,16 +2,14 @@ import React from 'react'
 
 import Layout from '../components/layout'
 
-function HomePage() {
+function ProfilePage() {
 
 
   return (
     <Layout>
-      
-      Anasayfa
-
+      Profile
     </Layout>
   )
 }
 
-export default HomePage
+export default ProfilePage

@@ -2,16 +2,14 @@ import React from 'react'
 
 import Layout from '../components/layout'
 
-function HomePage() {
+function MessagesPage() {
 
 
   return (
     <Layout>
-      
-      Anasayfa
-
+      Messages
     </Layout>
   )
 }
 
-export default HomePage
+export default MessagesPage

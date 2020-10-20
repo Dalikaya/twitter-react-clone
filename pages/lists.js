@@ -2,16 +2,14 @@ import React from 'react'
 
 import Layout from '../components/layout'
 
-function HomePage() {
+function ListsPage() {
 
 
   return (
     <Layout>
-      
-      Anasayfa
-
+      Lists
     </Layout>
   )
 }
 
-export default HomePage
+export default ListsPage
