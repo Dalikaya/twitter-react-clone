@@ -1,7 +1,7 @@
 import React, { useContext,useState } from 'react'
 import cn from 'classnames'
 import styles from './theme-select.module.css'
-import StoreContext from '../store/index'
+import StoreContext from '../../store/index'
 
 const THEME = {
   light: 'Light',

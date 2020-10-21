@@ -1,12 +1,12 @@
 import React from 'react'
 import cn from 'classnames'
-import useWindowSize from '../hooks/useWindowSize'
-import styles from './layout.module.css'
+import useWindowSize from '../../hooks/useWindowSize'
+import styles from '../layout/layout.module.css'
 
-import CONST from '../constants/index'
-import Sidebar from './col-sidebar'
-import Main from './col-main'
-import Extra from './col-extra'
+import CONST from '../../constants/index'
+import Sidebar from '../col/col-sidebar'
+import Main from '../col/col-main'
+import Extra from '../col/col-extra'
 
 
 

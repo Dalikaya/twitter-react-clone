@@ -2,9 +2,9 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 
-import NavigationButton from './navigation-button'
-import {MENU} from '../constants'
-import TextTitle from './text-title'
+import NavigationButton from '../button/navigation-button'
+import {MENU} from '../../constants'
+import TextTitle from '../text/text-title'
 import styles from './navigation.module.css'
 
 
