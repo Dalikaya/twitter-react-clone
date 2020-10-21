@@ -1,12 +1,12 @@
 import React from 'react'
 import {withKnobs,boolean} from '@storybook/addon-knobs'
-import Button from '../components/button'
-import ThemeButton from '../components/theme-button'
-import NavigationButton from '../components/navigation-button'
-import Navigation from '../components/navigation'
+import Button from '../components/button/button'
+import ThemeButton from '../components/theme-button/theme-button'
+import NavigationButton from '../components/button/navigation-button'
+import Navigation from '../components/navigation/navigation'
 import Home from '../components/icons/Home'
-import TextTitle from '../components/text-title'
-import Stack from '../components/stack'
+import TextTitle from '../components/text/text-title'
+import Stack from '../components/stack/stack'
 
 export default {
   title: 'Buttons',
@@ -31,4 +31,4 @@ export const NavButton = () => (
 
 export const Nav = () => {
 const flat = boolean('Flat',false);
-return <Navigation flat={flat} selectedKey="home" />}
+return <Navigation flat={flat} selectedForStorybook="/" />}

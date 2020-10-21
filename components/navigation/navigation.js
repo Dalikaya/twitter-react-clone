@@ -9,27 +9,49 @@ import styles from './navigation.module.css'
 
 
 
-function Navigation({ flat = false }) {
+function Navigation({ flat = false,selectedForStorybook }) {
+  
   const router = useRouter();
    
   return (
     <nav className={styles.nav}>
       {MENU.map((menu) => {
-        const selected = router.pathname === menu.path
-        return (
-          <NavigationButton
-            key={menu.key}
-            notify={menu.notify < 1 ? null : menu.notify}
-            selected={selected}
-            href = {menu.path}
-            className={cn(styles.navButton,menu.key)}
-          >
-            {selected ? menu.iconSelected:menu.icon}
-            {!flat && menu.title.length > 0 ? (
-              <TextTitle>{menu.title}</TextTitle>
-            ) : null}
-          </NavigationButton>
-        )
+        try {
+          const selected = router.pathname === menu.path
+          return (
+            <NavigationButton
+              key={menu.key}
+              notify={menu.notify < 1 ? null : menu.notify}
+              selected={selected}
+              href = {menu.path}
+              className={cn(styles.navButton,menu.key)}
+            >
+              {selected ? menu.iconSelected:menu.icon}
+              {!flat && menu.title.length > 0 ? (
+                <TextTitle>{menu.title}</TextTitle>
+              ) : null}
+            </NavigationButton>
+          )
+        } catch (error) {
+         const selected = selectedForStorybook
+          return (
+            <NavigationButton
+              key={menu.key}
+              notify={menu.notify < 1 ? null : menu.notify}
+              selected={selected}
+              href = {menu.path}
+              className={cn(styles.navButton,menu.key)}
+            >
+              {selected ? menu.iconSelected:menu.icon}
+              {!flat && menu.title.length > 0 ? (
+                <TextTitle>{menu.title}</TextTitle>
+              ) : null}
+            </NavigationButton>
+          )
+        }
+         
+        
+        
       })}
     </nav>
   )
