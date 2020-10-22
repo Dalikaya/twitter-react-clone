@@ -1,11 +1,11 @@
-/*gap değişkenimiz dışarıdan da geldiği için burada yazmasak da olurdu */
+/*gap değişkenimiz dışarıdan da geldiği için burada --gap:10px yazmasak da olurdu */
 .stack{
     --gap:10px;
     display: flex;
     align-items: center;
     * + * {
-        margin-left:var(--gap);
-         margin-top:var(--gap);
+         margin-left:var(--gap);
+        
     }
 }
 

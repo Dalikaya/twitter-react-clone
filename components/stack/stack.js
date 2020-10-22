@@ -4,9 +4,9 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './stack.module.css'
 
-export default function Stack({gap = 10,column,children}) {
+export default function Stack({gap = 10,column,children,className}) {
     return (
-        <div className={cn(styles.stack,column && styles.column)} style={{"--gap":`${gap}px`}}>
+        <div className={cn(styles.stack,column && styles.column,className)} style={{"--gap":`${gap}px`}}>
             {children}
         </div>
     )
