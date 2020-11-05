@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import styles from './login-form.module.css'
 import {Twitter} from '../icons'
+import StoreContext from '../../store/index'
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required('Zorunlu alan'),
@@ -15,6 +16,7 @@ const validationSchema = Yup.object({
 export default function LoginForm({}) {
   const [showError, ShowError] = useState(false);
 
+  const store = useContext(StoreContext)
   
   return (
     <div className={styles.mainDiv} >
@@ -28,7 +30,7 @@ export default function LoginForm({}) {
         initialValues={{ lastName: '', firstName: '', email: '' }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          
+          store.loginUser(JSON.stringify( values));
           if (values.firstName.toLocaleLowerCase() === 'admin' && values.lastName.toLocaleLowerCase() === '123') {
             console.log(values)          
               window.location = '/main'

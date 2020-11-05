@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useContext } from 'react'
 import Photo from '../photo/photo'
 import Stack from '../stack/stack'
 import ThemeButton from '../theme-button/theme-button'
@@ -6,30 +6,33 @@ import IconButton from '../button/icon-button'
 import * as Icon from '../icons'
 
 import styles from './tweet-model.module.css'
+import StoreContext from '../../store'
 
 function TweetModal({ onModalClose = ()=>{}, children, onClick = () => {} }) {
   const [tweet, tweetSet] = React.useState('')
 
+   const store = useContext(StoreContext)
+
   const onSubmit = async () => {
     try {
-      const response = await fetch('/api/new', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tweet })
-      })
-      const data = await response.json()
-      console.log(data);
-
-      // if (response.status !== 200){
-      //    throw new Error('tweet gönderilemedi');
-         
-      // } 
+     let user =  store.GetloginUser();
       onModalClose();
+      let userTweet = [];
+      let allTweets = [];
+      userTweet.push(tweet);
+      userTweet.push(user.firstName);
+      userTweet.push(new Date().toJSON().slice(0,10).replace(/-/g,'-'));
+      allTweets =  localStorage.getItem('TWEET') === null ? localStorage.setItem('TWEET',JSON.stringify([userTweet])) :JSON.parse( localStorage.getItem('TWEET'))
+      
+      allTweets.push(userTweet);
+      localStorage.setItem('TWEET',JSON.stringify(allTweets));
+
+
+      store.GetAllTweets();
       
     } catch (error) {
       
-      throw 'tweet gönderilemedi';
-      onModalClose();
+      
       
     }
    
