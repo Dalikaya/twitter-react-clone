@@ -124,7 +124,7 @@ export default function LoginForm({}) {
               </button>
             )}
 
-            <span>{values.lastName + ' ' + values.firstName}</span>
+           
           </form>
         )}
       </Formik>

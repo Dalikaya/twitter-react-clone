@@ -15,7 +15,7 @@ export default function Layout({ children }) {
       <Sidebar flat={size.width < CONST.DESKTOP_SIZE}>asdas</Sidebar>
       <Main> {children}</Main>
       {/* sizedan gelen witdh değerimiz constant klasorümüzden gelen sabitlerimizden tablet için olanından (980) büyükse extrayı göster değilse gösterme */}
-      {size.width > CONST.TABLET_SIZE && <Extra>Extra</Extra>}
+      {size.width > CONST.TABLET_SIZE && <Extra></Extra>}
     </div>
   )
 }
