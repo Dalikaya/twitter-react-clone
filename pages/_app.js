@@ -10,13 +10,14 @@ export default function MyApp({ Component, pageProps }) {
 
   const [tweets,tweetSet] = useState(null)
 
-  const [tags,tagSet]= useState(null)
+  const [tags,tagSet]= useState([])
   //useLayout sayfa yüklendikten hemen sonra useEffecten önce çalışır ve localStorage dan verilerimiz getirir themeSet ile de Stateimizi günceller
   useLayoutEffect(() => {
   
     const theme = localStorage.getItem('THEME') || 'dark'
    themeSet(theme)
-   GetAllTags()
+   GetAllTags(UpdateTags)
+   GetAllTweets(UpdateTweets)
   
   //ikiside aynı anlama denk gelir
 //  if (localStorage.getItem('THEME') !== null) {
@@ -40,16 +41,24 @@ export default function MyApp({ Component, pageProps }) {
     return JSON.parse( localStorage.getItem("USER"))
   }
 
-  const GetAllTweets = () =>{
+  const GetAllTweets = (callback) =>{
    
   const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
-   tweetSet(AllTweets)
   
-   
+   callback(AllTweets)
     
   }
 
-  const GetAllTags = () =>{
+  const UpdateTweets = (AllTweets) =>{
+    tweetSet(AllTweets)
+  
+  }
+  const UpdateTags = (AllTags) =>{
+    tagSet(AllTags);
+   
+  }
+
+  const GetAllTags = (callback) =>{
    
       const AllTweets = JSON.parse( localStorage.getItem("TWEET"))
       let AllTags = [];
@@ -64,8 +73,11 @@ export default function MyApp({ Component, pageProps }) {
            
          });
       }
-    console.log(AllTags);
-      tagSet(AllTags);
+
+      callback(AllTags);
+      
+    
+     
   
     
    
@@ -81,9 +93,11 @@ export default function MyApp({ Component, pageProps }) {
   }, [theme])
 
   
+
+  
   return (
     // komponentlerimize gitmesi gereken datayı ana kompponentimizde app imiz içinde tuttuk ve value={{theme,changeTheme}} diye aşağıya gönderdik
-    <StoreContext.Provider value={{ theme,changeTheme,user,loginUser,GetloginUser,GetAllTweets,tweets,GetAllTags,tags}}>
+    <StoreContext.Provider value={{ theme,changeTheme,user,loginUser,GetloginUser,GetAllTweets,UpdateTweets,tweets,GetAllTags,UpdateTags,tags}}>
       {/* bütün satfalarımızı context.providerımızı ile sarmaladık */}
       <Component {...pageProps}></Component>
     </StoreContext.Provider>

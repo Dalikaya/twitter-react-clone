@@ -36,8 +36,8 @@ function TweetModal({ onModalClose = ()=>{}, children, onClick = () => {} }) {
       localStorage.setItem('TWEET',JSON.stringify(allTweets));
 
       
-        store.GetAllTweets();
-        store.GetAllTags();
+        store.GetAllTweets(store.UpdateTweets);
+        store.GetAllTags(store.UpdateTags);
       
       
       

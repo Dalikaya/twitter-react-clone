@@ -8,7 +8,7 @@ function HomePage() {
   const store = useContext(StoreContext)
   const tweets2 = store.tweets
   useEffect(() => {
-    store.GetAllTweets()
+    store.GetAllTweets(store.UpdateTweets)
     
  
   }, [])
@@ -18,6 +18,7 @@ function HomePage() {
       {tweets2 !== null ? (
         <>
           {tweets2.map((tweet,index) => {
+            
           return (<Tweet
           key={index}
             name={
