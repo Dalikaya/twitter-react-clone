@@ -41,16 +41,16 @@ export default function MyApp({ Component, pageProps }) {
   }
 
   const GetAllTweets = () =>{
-    setInterval(() => {
+   
       const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
    tweetSet(AllTweets)
-    }, 200);
+  
    
     
   }
 
   const GetAllTags = () =>{
-    setInterval(() => {
+   
       const AllTweets = JSON.parse( localStorage.getItem("TWEET"))
       let AllTags = [];
       if (AllTweets !== null) {
@@ -64,9 +64,9 @@ export default function MyApp({ Component, pageProps }) {
            
          });
       }
-     
+      console.log(AllTags);
       tagSet(AllTags);
-    }, 200);
+  
     
    
   }
