@@ -64,7 +64,7 @@ export default function MyApp({ Component, pageProps }) {
            
          });
       }
-    
+    console.log(AllTags);
       tagSet(AllTags);
   
     
