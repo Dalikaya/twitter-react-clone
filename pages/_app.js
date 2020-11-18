@@ -42,7 +42,7 @@ export default function MyApp({ Component, pageProps }) {
 
   const GetAllTweets = () =>{
    
-      const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
+  const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
    tweetSet(AllTweets)
   
    
