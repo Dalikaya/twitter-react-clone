@@ -50,9 +50,10 @@ export default function MyApp({ Component, pageProps }) {
   }
 
   const GetAllTags = () =>{
+    const AllTweets = JSON.parse( localStorage.getItem("TWEET"))
+    let AllTags = [];
     setInterval(() => {
-      const AllTweets = JSON.parse( localStorage.getItem("TWEET"))
-      let AllTags = [];
+     
       if (AllTweets !== null) {
         AllTweets.forEach(element => {
           let a = element[3];
