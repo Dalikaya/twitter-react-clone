@@ -19,16 +19,27 @@ function TweetModal({ onModalClose = ()=>{}, children, onClick = () => {} }) {
       onModalClose();
       let userTweet = [];
       let allTweets = [];
+      let tags = [];
       userTweet.push(tweet);
       userTweet.push(user.firstName);
       userTweet.push(new Date().toJSON().slice(0,10).replace(/-/g,'-'));
+      tweet.split(" ").forEach(element => {
+        if (element.split("").indexOf("#") === 0) {
+          tags.push(element)
+          
+        }
+      })
+      userTweet.push(tags);
       allTweets =  localStorage.getItem('TWEET') === null ? localStorage.setItem('TWEET',JSON.stringify([userTweet])) :JSON.parse( localStorage.getItem('TWEET'))
       
       allTweets.push(userTweet);
       localStorage.setItem('TWEET',JSON.stringify(allTweets));
 
-
-      store.GetAllTweets();
+      
+        store.GetAllTweets();
+        store.GetAllTags();
+      
+      
       
     } catch (error) {
       

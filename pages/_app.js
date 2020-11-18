@@ -9,12 +9,14 @@ export default function MyApp({ Component, pageProps }) {
   const [user, userSet] = useState(null)
 
   const [tweets,tweetSet] = useState(null)
+
+  const [tags,tagSet]= useState(null)
   //useLayout sayfa yüklendikten hemen sonra useEffecten önce çalışır ve localStorage dan verilerimiz getirir themeSet ile de Stateimizi günceller
   useLayoutEffect(() => {
   
     const theme = localStorage.getItem('THEME') || 'dark'
    themeSet(theme)
-   
+   GetAllTags()
   
   //ikiside aynı anlama denk gelir
 //  if (localStorage.getItem('THEME') !== null) {
@@ -39,9 +41,31 @@ export default function MyApp({ Component, pageProps }) {
   }
 
   const GetAllTweets = () =>{
-   const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
+    setInterval(() => {
+      const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
    tweetSet(AllTweets)
+    }, 200);
+   
     
+  }
+
+  const GetAllTags = () =>{
+    setInterval(() => {
+      const AllTweets = JSON.parse( localStorage.getItem("TWEET"))
+      let AllTags = [];
+      if (AllTweets !== null) {
+        AllTweets.forEach(element => {
+          element[3].forEach(element2 => {
+            AllTags.push(element2);
+          });
+          
+           
+         });
+      }
+     console.log(AllTags);
+      tagSet(AllTags);
+    }, 200);
+   
   }
 
   
@@ -52,9 +76,11 @@ export default function MyApp({ Component, pageProps }) {
     document.querySelector("html").classList.add(theme)
     
   }, [theme])
+
+  
   return (
     // komponentlerimize gitmesi gereken datayı ana kompponentimizde app imiz içinde tuttuk ve value={{theme,changeTheme}} diye aşağıya gönderdik
-    <StoreContext.Provider value={{ theme,changeTheme,user,loginUser,GetloginUser,GetAllTweets,tweets}}>
+    <StoreContext.Provider value={{ theme,changeTheme,user,loginUser,GetloginUser,GetAllTweets,tweets,GetAllTags,tags}}>
       {/* bütün satfalarımızı context.providerımızı ile sarmaladık */}
       <Component {...pageProps}></Component>
     </StoreContext.Provider>
