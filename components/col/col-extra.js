@@ -17,10 +17,10 @@ export default function Extra({ children }) {
       <div className={styles.tagDiv}>
       <div className={styles.header} >İlgini çekebilecek gündemler</div>
       {tagss && tagss.map((tag, index) => {
-          return (<TextBody>
-            <div className={styles.tagsButtonDiv}>
+          return (<TextBody key={index}>
+            <div  className={styles.tagsButtonDiv}>
             <span className={styles.span} >Türkiye tarihinde gündemde</span>
-            <button className={styles.tagsButton} key={index}>{tag}</button>
+            <button className={styles.tagsButton} >{tag}</button>
             </div>
            
           </TextBody>)

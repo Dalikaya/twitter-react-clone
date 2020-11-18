@@ -56,7 +56,7 @@ export default function MyApp({ Component, pageProps }) {
       if (AllTweets !== null) {
         AllTweets.forEach(element => {
           let a = element[3];
-          console.log(a)
+      
           a.forEach(element2 => {
             AllTags.push(element2);
           });
