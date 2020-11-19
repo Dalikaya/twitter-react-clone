@@ -20,7 +20,7 @@ export default function Extra({ children }) {
           return (<TextBody key={index}>
             <div  className={styles.tagsButtonDiv}>
             <span className={styles.span} >Türkiye tarihinde gündemde</span>
-            <button className={styles.tagsButton} >{tag}</button>
+            <button className={styles.tagsButton} onClick={() => store.TrendsTweets(tag,store.UpdateTweets)} >{tag}</button>
             </div>
            
           </TextBody>)

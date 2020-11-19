@@ -2,6 +2,7 @@
 import React ,{useState, useEffect,useLayoutEffect} from 'react'
 import '../styles/app.css'
 import StoreContext from '../store/index'
+import Tweet from '../components/tweet/tweet'
 
 export default function MyApp({ Component, pageProps }) {
   const [theme, themeSet] = useState(null)
@@ -47,6 +48,21 @@ export default function MyApp({ Component, pageProps }) {
   
    callback(AllTweets)
     
+  }
+
+  const TrendsTweets = (tag,callback) => {
+    let tweet = tag;
+    const AllTweets =  JSON.parse( localStorage.getItem("TWEET"))
+    let Tweets = [];
+    AllTweets.forEach(element => {
+      if (element[3].includes(tweet)) {
+        Tweets.push(element)
+      }
+    });
+
+    callback(Tweets);
+
+
   }
 
   const UpdateTweets = (AllTweets) =>{
@@ -97,7 +113,7 @@ export default function MyApp({ Component, pageProps }) {
   
   return (
     // komponentlerimize gitmesi gereken datayı ana kompponentimizde app imiz içinde tuttuk ve value={{theme,changeTheme}} diye aşağıya gönderdik
-    <StoreContext.Provider value={{ theme,changeTheme,user,loginUser,GetloginUser,GetAllTweets,UpdateTweets,tweets,GetAllTags,UpdateTags,tags}}>
+    <StoreContext.Provider value={{ theme,changeTheme,user,loginUser,GetloginUser,GetAllTweets,UpdateTweets,tweets,GetAllTags,UpdateTags,tags,TrendsTweets}}>
       {/* bütün satfalarımızı context.providerımızı ile sarmaladık */}
       <Component {...pageProps}></Component>
     </StoreContext.Provider>

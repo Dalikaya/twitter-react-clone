@@ -28,7 +28,7 @@
   padding-right: 15px;
   padding-bottom: 10px;
   padding-top: 10px;
-  cursor: pointer;
+  
   &:hover {
     background-color: #eef0f1;
   }
