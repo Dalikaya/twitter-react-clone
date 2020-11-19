@@ -89,14 +89,17 @@ export default function MyApp({ Component, pageProps }) {
            
          });
       }
+      let newTag = [];
+     AllTags.forEach(element => {
+       if (newTag.indexOf(element) === -1) {
+          newTag.push(element)
+       }
+       
+     })
 
-      callback(AllTags);
-      
-    
-     
-  
-    
-   
+
+      callback(newTag);
+       
   }
 
   
