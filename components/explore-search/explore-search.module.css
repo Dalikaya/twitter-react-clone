@@ -1,0 +1,26 @@
+.exploreSearch {
+  height: 50px;
+  border-bottom: 1px solid var(--c-border-color);
+}
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgb(230 236 240);
+  border-radius: 99px;
+  outline: none;
+  padding: 8px 30px;
+  border: 1px solid rgb(230 236 240);
+
+
+  &:focus {
+    outline: 1;
+    border: 1px solid #1da1f2;
+    background-color: white;
+  }
+}
+.inputDiv {
+  box-sizing: border-box;
+  margin: 10px;
+  height: 60%;
+  width: 85%;
+}
