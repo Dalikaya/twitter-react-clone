@@ -12,6 +12,8 @@ export default function MyApp({ Component, pageProps }) {
   const [tweets, tweetSet] = useState(null)
 
   const [tags, tagSet] = useState([])
+
+  const [value,setValue] = useState(0);
   //useLayout sayfa yüklendikten hemen sonra useEffecten önce çalışır ve localStorage dan verilerimiz getirir themeSet ile de Stateimizi günceller
   useLayoutEffect(() => {
     const theme = localStorage.getItem('THEME') || 'dark'
@@ -89,6 +91,12 @@ export default function MyApp({ Component, pageProps }) {
     callback(newTag)
   }
 
+  const changeInput = (e) =>{
+    setValue(e.target.value);    
+
+    console.log(value)
+}
+
   //useLayoutEffectten sonra çalışır - useEffect theme state imizi izler değiştikçe html etiketimize class atıp silme işlemini yapar
   useEffect(() => {
     document.querySelector('html').removeAttribute('class')
@@ -110,7 +118,9 @@ export default function MyApp({ Component, pageProps }) {
         GetAllTags,
         UpdateTags,
         tags,
-        TrendsTweets
+        TrendsTweets,
+        changeInput,
+        value
       }}
     >
       {/* bütün satfalarımızı context.providerımızı ile sarmaladık */}
