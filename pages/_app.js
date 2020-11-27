@@ -91,10 +91,22 @@ export default function MyApp({ Component, pageProps }) {
     callback(newTag)
   }
 
-  const changeInput = (e) =>{
-    setValue(e.target.value);    
+  const changeInput = (e) =>{ 
+     let a = []
+      tweets.forEach(element => {
+        if ( element[0].includes(e.target.value)) {
 
-    console.log(value)
+            a.push(element)         
+       
+        }
+        
+      })
+
+      setValue(a);
+      console.log(value)
+    
+
+   
 }
 
   //useLayoutEffectten sonra çalışır - useEffect theme state imizi izler değiştikçe html etiketimize class atıp silme işlemini yapar
