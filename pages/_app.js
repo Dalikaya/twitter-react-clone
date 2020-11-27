@@ -64,6 +64,7 @@ export default function MyApp({ Component, pageProps }) {
 
   const UpdateTweets = (AllTweets) => {
     tweetSet(AllTweets)
+    setValue(AllTweets)
   }
   const UpdateTags = (AllTags) => {
     tagSet(AllTags)
