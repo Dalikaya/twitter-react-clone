@@ -95,7 +95,7 @@ export default function MyApp({ Component, pageProps }) {
   const changeInput = (e) =>{ 
      let a = []
       tweets.forEach(element => {
-        if ( element[0].includes(e.target.value)) {
+        if ( element[0].toLowerCase().includes(e.target.value.toLowerCase())) {
 
             a.push(element)         
        
